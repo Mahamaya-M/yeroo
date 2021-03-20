@@ -55,42 +55,33 @@
             <button id="button_32"><a href="test.html">Next</button>
 
             <script>
+                var i=0;
                 var x = document.getElementById("my_audio");
-
-
-
                 function playAudio() {
                     x.play();
-                    t = 0;
-                    for (var i = 0; i <= 54; i++) {
-                        print(i);
-                        if (t === 1) {
-                            break;
-                        }
-                    }
+                    interval = setInterval(time1, 1000);
+                }
 
-                    function print(i) {
-                        var stop = setTimeout(function () {
-                            document.getElementById("time").innerHTML = i;
-                        }, 1000 * i);
-                    }
+                function time1() {
+                    document.getElementById("time").innerHTML = i;
+                    i++;
 
+                    if (i == 55) {
+                        i = 0;
+                        document.getElementById("time").innerHTML = i;
+                        interval = clearInterval(interval);
+                    }
                 }
 
                 function pauseAudio() {
-                    t = 1;
                     x.pause();
-                    clearInterval(stop);
+                    interval = clearInterval(interval);
                 }
             </script>
 
         </center>
 
     </div>
-
-
-
-
     <script src="main.js"></script>
 </body>
 
